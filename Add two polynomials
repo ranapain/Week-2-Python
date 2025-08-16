@@ -1,0 +1,29 @@
+def add_polynomials(p1, p2):
+    result = p1.copy()
+    for power, coeff in p2.items():
+        result[power] = result.get(power, 0) + coeff
+    return result
+
+def print_poly(poly):
+    terms = []
+    for power in sorted(poly.keys(), reverse=True):
+        coeff = poly[power]
+        if coeff != 0:
+            if power == 0:
+                terms.append(str(coeff))
+            elif power == 1:
+                terms.append(f"{coeff}x")
+            else:
+                terms.append(f"{coeff}x^{power}")
+    return " + ".join(terms)
+
+# Example polynomials:
+# p1 = 3x^2 + 5x + 6
+# p2 = 6x^2 + 8x + 4
+p1 = {2: 3, 1: 5, 0: 6}
+p2 = {2: 6, 1: 8, 0: 4}
+
+result = add_polynomials(p1, p2)
+print("P1 =", print_poly(p1))
+print("P2 =", print_poly(p2))
+print("Sum =", print_poly(result))
