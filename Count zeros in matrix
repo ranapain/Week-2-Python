@@ -1,0 +1,14 @@
+def count_zeros(matrix):
+    count = 0
+    for row in matrix:
+        for val in row:
+            if val == 0:
+                count += 1
+    return count
+matrix = [
+    [1, 0, 3],
+    [0, 5, 0],
+    [7, 8, 9]
+]
+
+print("Number of zeros:", count_zeros(matrix))
